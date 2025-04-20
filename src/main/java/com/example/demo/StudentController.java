@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.entity.Student;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +16,17 @@ public class StudentController {
     @Autowired
     private StudentService service;
 
+    @GetMapping("/")
+    public String showLoginPage(Model model) {
+        model.addAttribute("student", new Student());
+        return "login"; // assuming login.html is your login page
+    }
     @GetMapping("/login")
-    public String showLoginForm() {
+    public String loginForm(Model model) {
+//        model.addAttribute("student", new Student());
         return "login";
     }
+
 
     @PostMapping("/login")
     public String login(@RequestParam String email, @RequestParam String password, Model model) {
@@ -51,5 +59,12 @@ public class StudentController {
         model.addAttribute("message", "Registration successful! Please log in.");
         return "login";
     }
+
+    @PostMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // clear session
+        return "redirect:/login"; // redirect to login page
+    }
+
 }
 

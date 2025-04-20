@@ -33,7 +33,15 @@
     <h2>Welcome, <span th:text="${student.name}"></span>!</h2>
     <p><strong>Email:</strong> <span th:text="${student.email}"></span></p>
     <p><strong>Phone:</strong> <span th:text="${student.phone_number}"></span></p>
+
+    <!-- Logout button -->
+    <form method="post" action="/logout" style="margin-top: 20px;">
+        <button type="submit" style="padding: 10px 20px; background-color: #ff4d4d; color: white; border: none; cursor: pointer;">
+            Logout
+        </button>
+    </form>
 </div>
+
 
 </body>
 </html>
