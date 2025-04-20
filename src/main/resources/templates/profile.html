@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .profile {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile">
+    <h2>Welcome, <span th:text="${student.name}"></span>!</h2>
+    <p><strong>Email:</strong> <span th:text="${student.email}"></span></p>
+    <p><strong>Phone:</strong> <span th:text="${student.phone_number}"></span></p>
+</div>
+
+</body>
+</html>
