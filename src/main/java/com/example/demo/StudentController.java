@@ -42,6 +42,11 @@ public class StudentController {
     @PostMapping("/register")
     public String register(@ModelAttribute Student student, Model model) {
         // Save logic here
+
+        if (service.present(student)) {
+            model.addAttribute("error", "User already exists. Try with a different email.");
+            return "register"; // Stay on the registration page
+        }
         service.register(student);
         model.addAttribute("message", "Registration successful! Please log in.");
         return "login";

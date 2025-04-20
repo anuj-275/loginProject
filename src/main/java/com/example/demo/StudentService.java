@@ -20,5 +20,9 @@ public class StudentService {
         }
         return null;
     }
+
+    public boolean present(Student student){
+        return repo.findByEmail(student.getEmail())==null? false:true;
+    }
 }
 

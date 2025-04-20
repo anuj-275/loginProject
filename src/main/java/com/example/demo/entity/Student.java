@@ -7,24 +7,21 @@ import jakarta.persistence.*;
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int user_id;
+    private String email; // primary key
 
     private String name;
-
-    private String email;
 
     private String phone_number;
 
     private String password; // for login
 
-    // Getters and setters (recommended to add)
-    public int getUser_id() {
-        return user_id;
+    // Getters and setters
+    public String getEmail() {
+        return email;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
@@ -33,14 +30,6 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPhone_number() {

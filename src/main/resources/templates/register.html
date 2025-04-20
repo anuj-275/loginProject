@@ -29,8 +29,16 @@
 </head>
 <body>
 
+
 <h2 style="text-align:center;">Register</h2>
 
+<!-- Show success or error message -->
+<div th:if="${message}" style="color: green; text-align: center;">
+    <p th:text="${message}"></p>
+</div>
+<div th:if="${error}" style="color: red; text-align: center;">
+    <p th:text="${error}"></p>
+</div>
 <form method="post" action="/register" th:object="${student}">
     <input type="text" th:field="*{name}" placeholder="Name" required />
     <input type="email" th:field="*{email}" placeholder="Email" required />
